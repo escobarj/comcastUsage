@@ -1,14 +1,17 @@
-__author__ = 'wtfox'
-
 from xml.etree import ElementTree
 from datetime import datetime
 import sys
 import calendar
+import getpass
 
 import requests
+from builtins import input
 
-USERNAME = ''
-PASSWORD = ''
+# Set username and/or password to 'ask' if you 
+# want to be prompted for it at the command line.
+USERNAME = 'ask'
+PASSWORD = 'ask'
+
 LOGIN_URL = 'https://umcs.comcast.net/usage_meter/login/uid?callback=?'
 USAGE_URL = 'https://umcs.comcast.net/usage_meter/usage/current'
 
@@ -74,6 +77,9 @@ def get_usage():
 
     sys.exit(0)
 
-
 if __name__ == '__main__':
+    if USERNAME.lower() == 'ask':
+        USERNAME = input('Comcast user name: ')
+    if PASSWORD.lower() == 'ask':
+        PASSWORD = getpass.getpass('Comcast password: ')
     get_usage()
