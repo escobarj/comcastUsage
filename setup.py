@@ -7,7 +7,7 @@ setup(name='comcast-usage',
       author_email='escobarj@gmail.com',
       license='MIT',
       url='https://github.com/escobarj/comcastUsage',
-      packages=['comcastUsage'],
+      modules=['comcastUsage'],
       install_requires=[
           'future==0.15.2',
           'requests==2.8.1',
