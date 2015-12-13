@@ -7,14 +7,6 @@ import getpass
 import requests
 from builtins import input
 
-# Set username and/or password to 'ask' if you 
-# want to be prompted for it at the command line.
-USERNAME = 'ask'
-PASSWORD = 'ask'
-
-LOGIN_URL = 'https://umcs.comcast.net/usage_meter/login/uid?callback=?'
-USAGE_URL = 'https://umcs.comcast.net/usage_meter/usage/current'
-
 def get_usage():
     ''' A list of items that are accessible:
         <Element 'counter_start' at 0x02D0DAE0>
@@ -35,6 +27,19 @@ def get_usage():
         <Element 'additional_billable_cost_per_block' at 0x02D0DEA0>
         <Element 'additional_billable_blocks_used' at 0x02D0DF00>
     '''
+
+    # Set username and/or password to 'ask' if you 
+    # want to be prompted for it at the command line.
+    USERNAME = 'ask'
+    PASSWORD = 'ask'
+
+    LOGIN_URL = 'https://umcs.comcast.net/usage_meter/login/uid?callback=?'
+    USAGE_URL = 'https://umcs.comcast.net/usage_meter/usage/current'
+
+    if USERNAME.lower() == 'ask':
+        USERNAME = input('Comcast user name: ')
+    if PASSWORD.lower() == 'ask':
+        PASSWORD = getpass.getpass('Comcast password: ')
 
     login_payload = {
         'username': USERNAME,
@@ -77,9 +82,3 @@ def get_usage():
 
     sys.exit(0)
 
-if __name__ == '__main__':
-    if USERNAME.lower() == 'ask':
-        USERNAME = input('Comcast user name: ')
-    if PASSWORD.lower() == 'ask':
-        PASSWORD = getpass.getpass('Comcast password: ')
-    get_usage()
