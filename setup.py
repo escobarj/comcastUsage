@@ -7,12 +7,12 @@ setup(name='comcast-usage',
       author_email='escobarj@gmail.com',
       license='MIT',
       url='https://github.com/escobarj/comcastUsage',
-      modules=['comcastUsage'],
+      packages=['comcastUsage'],
       install_requires=[
           'future==0.15.2',
           'requests==2.8.1',
       ],
       entry_points = {
-        'console_scripts': ['comcast-usage = command_line:main']
+        'console_scripts': ['comcast-usage = comcastUsage.command_line:main']
       },
 )
