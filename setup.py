@@ -13,6 +13,6 @@ setup(name='comcast-usage',
           'requests==2.8.1',
       ],
       entry_points = {
-        'console_scripts': ['comcast-usage = comcastUsage:get_usage']
+        'console_scripts': ['comcast-usage = command_line:main']
       },
 )
