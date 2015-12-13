@@ -1,7 +1,8 @@
 from setuptools import setup
+from comcastUsage import __version__
 
 setup(name='comcast-usage',
-      version="0.1.0",
+      version=__version__,
       description='A script to check your Comcast data usage',
       author='Jorge Escobar',
       author_email='escobarj@gmail.com',
